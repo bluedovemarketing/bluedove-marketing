@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: var(--bg);
+  --color-text-main: var(--text-main);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-muted: var(--muted);
+  --radius-custom: var(--radius);
+}
+
+:root {
+  /* Default Theme (Modern SaaS) */
+  --bg: #ffffff;
+  --text-main: #0f172a;
+  --accent: #2563eb;
+  --accent-soft: #eff6ff;
+  --muted: #64748b;
+  --radius: 1rem;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  transition: all 0.5s ease-in-out;
+}

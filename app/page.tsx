@@ -1,9 +1,9 @@
-// src/app/page.tsx
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Strategy from '../components/Strategy';
 import Results from '../components/Results';
 import Process from '../components/Process';
+import ContactForm from '../components/ContactForm'; // <-- IMPORT HERE
 import Footer from '../components/Footer';
 
 export default function Home() {
@@ -14,6 +14,7 @@ export default function Home() {
       <Strategy />
       <Results />
       <Process />
+      <ContactForm /> {/* <-- ADD HERE */}
       <Footer />
     </main>
   );

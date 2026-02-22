@@ -11,16 +11,16 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Grab all the form data
     const formData = new FormData(e.currentTarget);
-    
-    // Web3Forms Access Key (You will replace this string with your real key)
-    formData.append("access_key", "77f19490-4010-4ed3-84a5-a3aa59e4d21f");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      // YOUR LIVE FORMSPREE ENDPOINT
+      const response = await fetch("https://formspree.io/f/maqdpzno", {
         method: "POST",
-        body: formData
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
       });
 
       if (response.ok) {
@@ -29,8 +29,8 @@ export default function ContactForm() {
         alert("Something went wrong. Please try again.");
       }
     } catch (error) {
-      console.error(error);
-      alert("Something went wrong. Please try again.");
+      console.error("Formspree Error:", error);
+      alert("Something went wrong. Please check your connection.");
     } finally {
       setIsSubmitting(false);
     }
@@ -80,8 +80,6 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-6">
-                {/* BOT PREVENTION: Hidden Honeypot Field */}
-                <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
